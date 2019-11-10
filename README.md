@@ -1,29 +1,33 @@
-# Admin Panel For Laravel
+# Laravel Fieldables \
+This is a packages that makes it possible to add custom fields to a model, by adding a trait to it.
 
-![Philadelphia's Magic Gardens. This place was so cool!](screenshot.png "")
+## Install \
+To install this package you need to do a few steps: \
+- `composer require maben-dev/laravel-Fieldable`
+- `php artisan vendor:publish --provider="MabenDev\Fieldable\FieldableProvider"`
+- `php artisan migrate`
 
-This is a simple base to start developing your own amazing admin panel in laravel!
+That's it your done!
 
-Nothing more than a easy to use layout with some menu's.
+## How to use
+It's really easy, add some fields `myModel::addField('my_field', 'string');`.
 
-### Getting started
-It's realy easy!
+Than you can use these fields like a normal variable on the class: \
+set: `$myModel->my_field = 'my value';`.\
+get: `$myModel->my_field;`.
 
-You need to require it with composer:\
-`composer require maben-dev/laravel-admin-panel`
+## Important notes
+You need to give a valid type when you create a field, valid types are:
+- string
+- integer
+- boolean
+- float
+- file
 
-Than you need to publish the views and assets:\
-`php artisan vendor:publish --provider="MabenDev\AdminPanel\AdminPanelProvider"`
+These types make it easy for you to know how to handle the fields it self, in the future i plan to make them force the value to the type the field is.
 
-After that you go to the view of your page and let it extend:\
-`@extends('mabendev.adminpanel.layouts.app')`
+NEVER change the database prefix value in the config after you have migrated, if you do the tables cannot be found anymore and the models won't work.
 
-Your page content goes in between this section:\
-```
-@section('content')
-    // Your content goes here
-@endsection
-```
+If you have a requests, please contact me at m.aben@live.nl
 
-### Need help?
-Please contact me on: m.aben@live.nl
+If you want to help or you have a great idea, please feel free to make pull requests. Much appreciated. 

@@ -18,7 +18,6 @@ class Field extends Model
         'boolean',
         'float',
         'file',
-        'file',
     ];
 
     public function __construct(array $attributes = [])

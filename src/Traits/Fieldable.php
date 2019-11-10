@@ -12,7 +12,7 @@ trait Fieldable
     protected $fieldValues = [];
     protected $fields = [];
 
-    public function addField(string $name, string $type)
+    public static function addField(string $name, string $type)
     {
         $field = Field::create([
             'fielable_model' => __class__,
@@ -22,7 +22,7 @@ trait Fieldable
         return $field;
     }
 
-    public function removeField(string $name)
+    public static function removeField(string $name)
     {
         $field = Field::where([
             ['fieldable_model', __class__],
