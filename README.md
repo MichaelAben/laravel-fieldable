@@ -2,7 +2,7 @@
 This is a packages that makes it possible to add custom fields to a model, by adding a trait to it.
 
 ## Install 
-To install this package you need to do a few steps: \
+To install this package you need to do a few steps: 
 - `composer require maben-dev/laravel-Fieldable`
 - `php artisan vendor:publish --provider="MabenDev\Fieldable\FieldableProvider"`
 - `php artisan migrate`
