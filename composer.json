@@ -1,0 +1,30 @@
+{
+    "name": "maben-dev/laravel-Fieldable",
+    "description": "Give objects predefined extra fields, that act like normal model attributes",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Aben",
+            "email": "m.aben@live.nl"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "MabenDev\\Fieldable\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MabenDev\\Fieldable\\FieldableProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
