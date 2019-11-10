@@ -13,8 +13,8 @@ That's it your done!
 It's really easy, add some fields `myModel::addField('my_field', 'string');`.
 
 Than you can use these fields like a normal variable on the class: \
-set: `$myModel->my_field = 'my value';`.\
-get: `$myModel->my_field;`.
+set: `$myModel->my_field = 'my value';`\
+get: `$myModel->my_field;`
 
 ## Important notes
 You need to give a valid type when you create a field, valid types are:
