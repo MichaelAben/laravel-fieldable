@@ -26,7 +26,7 @@ class MabenDevFieldable extends Migration
             $table->unsignedBigInteger('fieldable_id');
             $table->unsignedBigInteger('field_id');
             $table->text('value');
-            $table->boolean('read-only')->default(false);
+            $table->boolean('read_only')->default(false);
             $table->timestamps();
 
             $table->foreign('field_id')

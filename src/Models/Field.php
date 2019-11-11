@@ -65,4 +65,28 @@ class Field extends Model
     {
         $this->allowedTypes = $allowedTypes;
     }
+
+    /**
+     * @param  string  $model
+     * @param  string  $name
+     * @param  string  $type
+     *
+     * @return mixed
+     */
+    public static function findOrCreate(string $model, string $name, string $type = 'string')
+    {
+        $field = Field::where([
+            'fieldable_model' => $model,
+            'name' => $name,
+            ])->first();
+        if(!empty($field)) return $field;
+
+        $field = Field::create([
+            'fieldable_model' => $model,
+            'name' => $name,
+            'type' => $type,
+        ]);
+
+        return $field;
+    }
 }

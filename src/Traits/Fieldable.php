@@ -13,14 +13,12 @@ trait Fieldable
     protected $fieldValues = [];
     protected $fieldIdList = [];
 
-    public static function updateOrCreateField(string $name, string $type)
+    public static function addField(string $name, string $type = 'string')
     {
-        $field = Field::updateOrCreate([
-            'fieldable_model' => __CLASS__,
-            'name' => $name,
-            'type' => $type,
-        ]);
-        return $field;
+        return Field::findOrCreate(
+            __CLASS__,
+            $name,
+            $type);
     }
 
     public static function deleteField(string $name)
@@ -45,6 +43,15 @@ trait Fieldable
     {
         foreach(Field::where('fieldable_model', __CLASS__)->get() as $field) {
             $field->values()->where('fieldable_id', $this->id)->delete();
+        }
+    }
+
+    public function setValueReadOnly(string $name)
+    {
+        $field = Field::find($this->fieldIdList[$name]);
+        if(!empty($value = $field->values()->where('fieldable_id', $this->id)->first())) {
+            $value->read_only = true;
+            $value->save();
         }
     }
 
