@@ -1,5 +1,5 @@
 {
-    "name": "maben-dev/laravel-Fieldable",
+    "name": "maben-dev/laravel-fieldable",
     "description": "Give objects predefined extra fields, that act like normal model attributes",
     "type": "library",
     "license": "MIT",
